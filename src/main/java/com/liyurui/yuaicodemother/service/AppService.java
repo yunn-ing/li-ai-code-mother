@@ -3,10 +3,12 @@ package com.liyurui.yuaicodemother.service;
 
 import com.liyurui.yuaicodemother.model.dto.app.AppQueryRequest;
 import com.liyurui.yuaicodemother.model.entity.App;
+import com.liyurui.yuaicodemother.model.entity.User;
 import com.liyurui.yuaicodemother.model.vo.AppVO;
 import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.core.service.IService;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 
@@ -37,4 +39,22 @@ public interface AppService extends IService<App> {
      * @return
      */
     QueryWrapper getQueryWrapper(AppQueryRequest appQueryRequest);
+
+    /**
+     * 聊天生成代码（流式）
+     *
+     * @param appId     应用 id
+     * @param message   用户消息
+     * @param loginUser 登录用户
+     * @return 生成的代码结果流
+     */
+    Flux<String> chatToGenCode(Long appId, String message, User loginUser);
+    /**
+     * 应用部署
+     *
+     * @param appId     应用 ID
+     * @param loginUser 登录用户
+     * @return 可访问的部署地址
+     */
+    String deployApp(Long appId, User loginUser);
 }

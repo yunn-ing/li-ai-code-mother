@@ -29,7 +29,6 @@ import static com.liyurui.yuaicodemother.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
  * 用户 服务层实现。
- *
  * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
  */
 @Service
